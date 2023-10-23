@@ -1,5 +1,5 @@
 ---
-title: "Lab 1"
+title: "Task 1"
 author: "Matej Klestinec"
 date: "2023-10-23"
 output: html_document
@@ -9,7 +9,7 @@ output: html_document
 
 ## 1 Create variables with all atomic types. Atomic types: character, numeric, integer, complex, logical.
 
-Numeric
+Numeric 
 ```{r}
 y<-2.8
 class(y)

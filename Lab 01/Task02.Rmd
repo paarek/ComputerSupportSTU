@@ -1,0 +1,26 @@
+---
+title: "Task 2"
+author: "Matej Klestinec"
+date: "2023-10-23"
+output: html_document
+---
+
+# Task 2
+
+## Exploring a dataset
+
+1.  **What are the column names of the data frame?**
+
+2.  **What are the row names of the data frame?**
+
+3.  **Extract the first 6 rows of the data frame and print them to the console**
+
+4.  **How many observations (i.e. rows) are in this data frame?**
+
+5.  **Extract the last 6 rows of the data frame and print them to the console**
+
+6.  **How many missing values are in the "Ozone" column of this data frame?**
+
+7.  **What is the mean of the "Ozone" column in this dataset? Exclude missing values (coded as NA) from this calculation.**
+
+8.  **Extract the subset of rows of the data frame where Ozone values are above 31 and Temp values are above 90.**
