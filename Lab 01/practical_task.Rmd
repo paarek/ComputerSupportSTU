@@ -42,7 +42,7 @@ row.names(mtcars)
 
 1.  Create variables with all atomic types. Atomic types: `character`, `numeric`, `integer`, `complex`, `logical`.
 
-2.  Create the next vectors:
+1.  Create the next vectors:
 
 -   sequence from 5 to 75;
 -   numbers: 3.14, 2.71, 0, 13;
