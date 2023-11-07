@@ -4,6 +4,8 @@ STU BA, ÚM: Počítačová podpora projektovania, akad. rok 2023/24, Matej Kles
 
 -   Lab01
 
-    -   Task01
+    -   Task01 - This github account
 
-    -   Task02
+    -   Task01 - 90% done
+
+    -   Task02 - 0% done
