@@ -68,7 +68,7 @@ n<-c(3.14, 2.71, 0, 13)
 n
 ```
 
-with 100 TRUE values. DOROBIT
+with 100 TRUE values.
 
 ```{R}
 v <- c(1:100)
