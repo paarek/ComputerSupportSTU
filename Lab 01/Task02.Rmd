@@ -9,18 +9,63 @@ output: html_document
 
 ## Exploring a dataset
 
+0. **Load the dataset**
+```{r}
+airquality_dataset <- read.csv("airquality.csv")
+```
+
 1.  **What are the column names of the data frame?**
 
+```{r}
+colnames(airquality_dataset)
+```
 2.  **What are the row names of the data frame?**
 
+```{r}
+rownames(airquality_dataset)
+```
 3.  **Extract the first 6 rows of the data frame and print them to the console**
 
+```{r}
+# head function extracts data from the beginning
+head(airquality_dataset, 6)
+```
+
 4.  **How many observations (i.e. rows) are in this data frame?**
+```{r}
+# nrow function counts the number of rows in the dataset
+nrow(airquality_dataset)
+```
 
 5.  **Extract the last 6 rows of the data frame and print them to the console**
 
-6.  **How many missing values are in the "Ozone" column of this data frame?**
+```{r}
+# tail function extracts data from the end
+tail(airquality_dataset, 6)
+```
 
+6.  **How many missing values are in the "Ozone" column of this data frame?**
+```{r}
+# "is.na" function is used to create a logical vector "missing_values_ozone" with missing values in the "Ozone" column and then uses the sum function to count the number of TRUE values 
+missing_values_ozone <- sum(is.na(airquality_dataset$Ozone))
+
+missing_values_ozone
+```
 7.  **What is the mean of the "Ozone" column in this dataset? Exclude missing values (coded as NA) from this calculation.**
 
+```{r}
+#mean function with the "na.rm = TRUE" parameter to calculate the mean of the "Ozone" column while excluding missing values.
+mean_ozone <- mean(airquality_dataset$Ozone, na.rm = TRUE)
+
+mean_ozone
+```
+
 8.  **Extract the subset of rows of the data frame where Ozone values are above 31 and Temp values are above 90.**
+
+```{r}
+### This code uses indexing to subset the rows based on the specified conditions (Ozone > 31 and Temp > 90)
+subset_dataset <- airquality_dataset[airquality_dataset$Ozone > 31 & airquality_dataset$Temp > 90, ]
+
+# Display the subset of rows
+subset_dataset
+```
