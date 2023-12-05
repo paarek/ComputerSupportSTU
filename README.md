@@ -9,6 +9,11 @@ STU BA, ÚM: Počítačová podpora projektovania, akad. rok 2023/24, Matej Kles
     -   Task01 - 100% Done
 
     -   Task02 - 100% Done
-      - Could not commit...
+    
+-   Task03 - 100% Done
+    
+-   Task04 - 50% Done
+    
+-   Task05 - 100% Done
 
--   Lab02
+

@@ -9,11 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="klesto" />
 
-<meta name="date" content="2023-12-05" />
 
-<title>Task 04</title>
+<title>README</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,85 +348,25 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Task 04</h1>
-<h4 class="author">klesto</h4>
-<h4 class="date">2023-12-05</h4>
 
 </div>
 
 
-<div id="task-4.-functions" class="section level2">
-<h2>Task 4. Functions</h2>
-<p>Create the next functions and test them with a few different
-arguments:</p>
-<ol style="list-style-type: decimal">
-<li>Function <code>above(x, n)</code> which returns all items of vector
-<code>x</code> that more than <code>n</code>. By default
-<code>n = 10</code>. For instance, <code>above(c(3, 5, 6), 5)</code>
-returns <code>6</code>.</li>
-</ol>
-<pre class="r"><code>above &lt;- function(x, n = 10) {
-  return(x[x &gt; n])
-}
-
-# Test the function with different arguments
-test_vector1 &lt;- c(3, 5, 6)
-result1 &lt;- above(test_vector1, 5)
-cat(&quot;Test 1 Result:&quot;, result1, &quot;\n&quot;)</code></pre>
-<pre><code>## Test 1 Result: 6</code></pre>
-<pre class="r"><code>test_vector2 &lt;- c(8, 12, 15, 4, 20)
-result2 &lt;- above(test_vector2)
-cat(&quot;Test 2 Result:&quot;, result2, &quot;\n&quot;)</code></pre>
-<pre><code>## Test 2 Result: 12 15 20</code></pre>
-<pre class="r"><code>test_vector3 &lt;- c(2, 3, 7, 12)
-result3 &lt;- above(test_vector3, 8)
-cat(&quot;Test 3 Result:&quot;, result3, &quot;\n&quot;)</code></pre>
-<pre><code>## Test 3 Result: 12</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>Function <code>my_ifelse(x, exp, n)</code> which compares all items
-of vector <code>x</code> with <code>n</code> using expression
-<code>exp</code>. <code>exp</code> can be <code>&lt;</code>,
-<code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>,
-<code>==</code>. For instance, <code>exp(c(3, 5, 6), &quot;&gt;=&quot;, 5)</code>
-returns <code>5, 6</code>. my_ifelse &lt;- function(x, exp, n) {</li>
-</ol>
-<pre class="r"><code>my_ifelse &lt;- function(x, exp, n) {
-  # Check the expression and perform the comparison
-  if (exp == &quot;&lt;&quot;) {
-    return(x[x &lt; n])
-  } else if (exp == &quot;&lt;=&quot;) {
-    return(x[x &lt;= n])
-  } else if (exp == &quot;&gt;&quot;) {
-    return(x[x &gt; n])
-  } else if (exp == &quot;&gt;=&quot;) {
-    return(x[x &gt;= n])
-  } else if (exp == &quot;==&quot;) {
-    return(x[x == n])
-  } else {
-    stop(&quot;Invalid expression. Use &#39;&lt;&#39;, &#39;&lt;=&#39;, &#39;&gt;&#39;, &#39;&gt;=&#39;, or &#39;==&#39;&quot;)
-  }
-}
-
-# Test the function with different arguments
-test_vector1 &lt;- c(3, 5, 6)
-result1 &lt;- my_ifelse(test_vector1, &quot;&gt;=&quot;, 5)
-cat(&quot;Test 1 Result:&quot;, result1, &quot;\n&quot;)</code></pre>
-<pre><code>## Test 1 Result: 5 6</code></pre>
-<pre class="r"><code>test_vector2 &lt;- c(8, 12, 15, 4, 20)
-result2 &lt;- my_ifelse(test_vector2, &quot;&lt;&quot;, 10)
-cat(&quot;Test 2 Result:&quot;, result2, &quot;\n&quot;)</code></pre>
-<pre><code>## Test 2 Result: 8 4</code></pre>
-<pre class="r"><code>test_vector3 &lt;- c(2, 3, 7, 12)
-result3 &lt;- my_ifelse(test_vector3, &quot;==&quot;, 7)
-cat(&quot;Test 3 Result:&quot;, result3, &quot;\n&quot;)</code></pre>
-<pre><code>## Test 3 Result: 7</code></pre>
-<ol start="3" style="list-style-type: decimal">
-<li>Function <code>my_columnmean(df, removeNA)</code> that returns mean
-value for each column of data frame or matrix <code>df</code>. Logical
-argument <code>removeNA</code> set whether remove NA values or not. By
-default <code>removeNA = True</code>. Use loop <code>for</code> of
-<code>while</code> for the function.</li>
-</ol>
+<div id="computersupportstu" class="section level1">
+<h1>ComputerSupportSTU</h1>
+<p>STU BA, ÚM: Počítačová podpora projektovania, akad. rok 2023/24,
+Matej Klestinec</p>
+<ul>
+<li><p>Lab01</p>
+<ul>
+<li><p>Task01 - This github account</p></li>
+<li><p>Task01 - 100% Done</p></li>
+<li><p>Task02 - 100% Done</p></li>
+</ul></li>
+<li><p>Task03 - 100% Done</p></li>
+<li><p>Task04 - 50% Done</p></li>
+<li><p>Task05 - 100% Done</p></li>
+</ul>
 </div>
 
 

@@ -1,0 +1,45 @@
+## Task 5. Visualisations
+
+### Exploring the dataset
+
+```{r}
+head(mtcars)
+```
+
+#### Build 3 different visualizations, for example scatterplot, histogram and boxplot based on columns of the dataset.
+
+-   For building visualizations you can use [ggplot2](https://ggplot2.tidyverse.org/) (preferable) or [base plotting system](https://bookdown.org/rdpeng/exdata/the-base-plotting-system-1.html).
+
+### Scatterplot
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Weight vs MPG",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon (mpg)")
+```
+
+### Histogram
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(x = mpg)) +
+  geom_histogram(binwidth = 3, fill = "blue", color = "black", alpha = 0.7) +
+  labs(title = "Histogram of MPG",
+       x = "Miles per Gallon (mpg)",
+       y = "Frequency")
+
+```
+
+### Boxplot
+
+```{r}
+ggplot(mtcars, aes(x = factor(cyl), y = mpg, fill = factor(cyl))) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Cylinders vs MPG",
+       x = "Number of Cylinders",
+       y = "Miles per Gallon (mpg)",
+       fill = "Number of Cylinders")
+```

@@ -15,52 +15,54 @@ above <- function(x, n = 10) {
   return(x[x > n])
 }
 
-# Test the function
-above(c(3, 5, 6), 5)
-above(c(8, 12, 15, 3, 6), 10)
-above(c(1, 2, 3, 4, 5), 3)
+# Test the function with different arguments
+test_vector1 <- c(3, 5, 6)
+result1 <- above(test_vector1, 5)
+cat("Test 1 Result:", result1, "\n")
+
+test_vector2 <- c(8, 12, 15, 4, 20)
+result2 <- above(test_vector2)
+cat("Test 2 Result:", result2, "\n")
+
+test_vector3 <- c(2, 3, 7, 12)
+result3 <- above(test_vector3, 8)
+cat("Test 3 Result:", result3, "\n")
 ```
 2. Function `my_ifelse(x, exp, n)` which compares all items of vector `x` with `n` using expression `exp`. `exp` can be `<`, `<=`, `>`, `>=`, `==`. For instance, `exp(c(3, 5, 6), ">=", 5)` returns `5, 6`.
 my_ifelse <- function(x, exp, n) {
 ```{r}
 my_ifelse <- function(x, exp, n) {
-  comparison <- switch(exp,
-                       "<" = x[x < n],
-                       "<=" = x[x <= n],
-                       ">" = x[x > n],
-                       ">=" = x[x >= n],
-                       "==" = x[x == n],
-                       stop("Invalid comparison expression. Use '<', '<=', '>', '>=', or '=='."))
-
-  return(comparison)
+  # Check the expression and perform the comparison
+  if (exp == "<") {
+    return(x[x < n])
+  } else if (exp == "<=") {
+    return(x[x <= n])
+  } else if (exp == ">") {
+    return(x[x > n])
+  } else if (exp == ">=") {
+    return(x[x >= n])
+  } else if (exp == "==") {
+    return(x[x == n])
+  } else {
+    stop("Invalid expression. Use '<', '<=', '>', '>=', or '=='")
+  }
 }
 
-# Test the function
-my_ifelse(c(3, 5, 6), ">=", 5)
-my_ifelse(c(8, 12, 15, 3, 6), "<", 10)
-my_ifelse(c(1, 2, 3, 4, 5), "==", 3)
+# Test the function with different arguments
+test_vector1 <- c(3, 5, 6)
+result1 <- my_ifelse(test_vector1, ">=", 5)
+cat("Test 1 Result:", result1, "\n")
+
+test_vector2 <- c(8, 12, 15, 4, 20)
+result2 <- my_ifelse(test_vector2, "<", 10)
+cat("Test 2 Result:", result2, "\n")
+
+test_vector3 <- c(2, 3, 7, 12)
+result3 <- my_ifelse(test_vector3, "==", 7)
+cat("Test 3 Result:", result3, "\n")
+
 ```
 3. Function `my_columnmean(df, removeNA)` that returns mean value for each column of data frame or matrix `df`. Logical argument `removeNA` set whether remove NA values or not. By default `removeNA = True`. Use loop `for` of `while` for the function.
 ```{r}
-my_columnmean <- function(df, removeNA = TRUE) {
-  num_cols <- ncol(df)
-  means <- numeric(num_cols)
 
-  for (i in 1:num_cols) {
-    col_values <- df[, i]
-    if (removeNA) {
-      col_values <- col_values[!is.na(col_values)]
-    }
-    means[i] <- mean(col_values)
-  }
-
-  return(means)
-}
-
-# Test the function
-df <- data.frame(a = c(1, 2, 3, NA, 5),
-                 b = c(6, 7, 8, 9, 10))
-
-my_columnmean(df)
-my_columnmean(df, removeNA = FALSE)
 ```
