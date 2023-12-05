@@ -4,7 +4,7 @@ STU BA, ÚM: Počítačová podpora projektovania, akad. rok 2023/24, Matej Kles
 
 -   Lab01
 
-    -   Task01 - This github account
+    -   Task00 - This github account
 
     -   Task01 - 100% Done
 
@@ -16,4 +16,4 @@ STU BA, ÚM: Počítačová podpora projektovania, akad. rok 2023/24, Matej Kles
     
 -   Task05 - 100% Done
 
-
+Could not commit? (Test)
