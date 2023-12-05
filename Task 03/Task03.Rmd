@@ -1,0 +1,79 @@
+---
+title: "Task 03"
+author: "klesto"
+date: "2023-12-05"
+output: html_document
+---
+## Task 3. Subsetting data
+
+1. Create the next random vector:
+
+```{r message=FALSE}
+v <- rnorm(50)
+```
+
+For the vector print:
+
+- 10th item;
+
+```{r}
+cat("10th item", v[10])
+```
+
+- items from 10th to 20th (including 20th item);
+
+```{r}
+cat("Items from 10th to 20th", v[10:20])
+```
+
+- 10 items starting from 5th;
+
+```{r}
+cat("10 items starting from 5th", v[5:14])
+```
+
+- all items bigger than 0.
+
+```{r}
+cat("All items bigger than 0", v[v > 0])
+```
+
+
+2. Create the next data frame:
+
+```{r message=FALSE}
+df <- 
+  data.frame(a = rnorm(50), b = 1:50, 
+             cc = sample(letters, 50, replace = TRUE))
+
+```
+
+For the data frame find and print:
+
+- the last 10 rows;
+
+```{r}
+cat("Last 10 rows")
+print(tail(df, 10))
+```
+
+- 15th item of columns `cc`;
+
+```{r}
+cat("15th item of column", df$cc[15])
+```
+
+- subset columns `a`and `b` and rows from 10th to 20th (including 20th);
+
+```{r}
+cat("Subset of columns")
+print(df[10:20, c('a', 'b')])
+```
+
+- a new vector from column `b`.'
+
+```{r}
+new_vector <- df$b
+cat("New vector from column")
+print(new_vector)
+```

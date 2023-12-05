@@ -1,0 +1,66 @@
+---
+title: "Task 04"
+author: "klesto"
+date: "2023-12-05"
+output: html_document
+---
+
+## Task 4. Functions
+
+Create the next functions and test them with a few different arguments:
+
+1. Function `above(x, n)` which returns all items of vector `x` that more than `n`. By default `n = 10`. For instance, `above(c(3, 5, 6), 5)` returns `6`.
+```{r}
+above <- function(x, n = 10) {
+  return(x[x > n])
+}
+
+# Test the function
+above(c(3, 5, 6), 5)
+above(c(8, 12, 15, 3, 6), 10)
+above(c(1, 2, 3, 4, 5), 3)
+```
+2. Function `my_ifelse(x, exp, n)` which compares all items of vector `x` with `n` using expression `exp`. `exp` can be `<`, `<=`, `>`, `>=`, `==`. For instance, `exp(c(3, 5, 6), ">=", 5)` returns `5, 6`.
+my_ifelse <- function(x, exp, n) {
+```{r}
+my_ifelse <- function(x, exp, n) {
+  comparison <- switch(exp,
+                       "<" = x[x < n],
+                       "<=" = x[x <= n],
+                       ">" = x[x > n],
+                       ">=" = x[x >= n],
+                       "==" = x[x == n],
+                       stop("Invalid comparison expression. Use '<', '<=', '>', '>=', or '=='."))
+
+  return(comparison)
+}
+
+# Test the function
+my_ifelse(c(3, 5, 6), ">=", 5)
+my_ifelse(c(8, 12, 15, 3, 6), "<", 10)
+my_ifelse(c(1, 2, 3, 4, 5), "==", 3)
+```
+3. Function `my_columnmean(df, removeNA)` that returns mean value for each column of data frame or matrix `df`. Logical argument `removeNA` set whether remove NA values or not. By default `removeNA = True`. Use loop `for` of `while` for the function.
+```{r}
+my_columnmean <- function(df, removeNA = TRUE) {
+  num_cols <- ncol(df)
+  means <- numeric(num_cols)
+
+  for (i in 1:num_cols) {
+    col_values <- df[, i]
+    if (removeNA) {
+      col_values <- col_values[!is.na(col_values)]
+    }
+    means[i] <- mean(col_values)
+  }
+
+  return(means)
+}
+
+# Test the function
+df <- data.frame(a = c(1, 2, 3, NA, 5),
+                 b = c(6, 7, 8, 9, 10))
+
+my_columnmean(df)
+my_columnmean(df, removeNA = FALSE)
+```
