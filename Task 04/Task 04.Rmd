@@ -8,25 +8,26 @@ output: html_document
 ## Task 4. Functions
 
 Create the next functions and test them with a few different arguments:
-
+  
 1. Function `above(x, n)` which returns all items of vector `x` that more than `n`. By default `n = 10`. For instance, `above(c(3, 5, 6), 5)` returns `6`.
 ```{r}
 above <- function(x, n = 10) {
   return(x[x > n])
 }
+```
+Test the function with different arguments
+```{r}
+# Test 1
+result1 <- above(c(9, 12, 7), 8)
+print(result1)
 
-# Test the function with different arguments
-test_vector1 <- c(3, 5, 6)
-result1 <- above(test_vector1, 5)
-cat("Test 1 Result:", result1, "\n")
+# Test 2 
+result2 <- above(c(3, 5), 4)
+print(result2)
 
-test_vector2 <- c(8, 12, 15, 4, 20)
-result2 <- above(test_vector2)
-cat("Test 2 Result:", result2, "\n")
-
-test_vector3 <- c(2, 3, 7, 12)
-result3 <- above(test_vector3, 8)
-cat("Test 3 Result:", result3, "\n")
+# Test 3 (using the default value of n)
+result3 <- above(c(8, 12, 15, 3, 6))
+print(result3)
 ```
 2. Function `my_ifelse(x, exp, n)` which compares all items of vector `x` with `n` using expression `exp`. `exp` can be `<`, `<=`, `>`, `>=`, `==`. For instance, `exp(c(3, 5, 6), ">=", 5)` returns `5, 6`.
 my_ifelse <- function(x, exp, n) {
@@ -43,26 +44,60 @@ my_ifelse <- function(x, exp, n) {
     return(x[x >= n])
   } else if (exp == "==") {
     return(x[x == n])
-  } else {
-    stop("Invalid expression. Use '<', '<=', '>', '>=', or '=='")
   }
 }
-
-# Test the function with different arguments
+```
+Test the function with different arguments
+```{r}
 test_vector1 <- c(3, 5, 6)
-result1 <- my_ifelse(test_vector1, ">=", 5)
-cat("Test 1 Result:", result1, "\n")
+result1 <- my_ifelse(test_vector1, "==", 5)
+print(result1)
 
-test_vector2 <- c(8, 12, 15, 4, 20)
-result2 <- my_ifelse(test_vector2, "<", 10)
-cat("Test 2 Result:", result2, "\n")
+test_vector2 <- c(8, 10, 12, 15, 4, 20, 2)
+result2 <- my_ifelse(test_vector2, ">=", 10)
+print(result2)
 
 test_vector3 <- c(2, 3, 7, 12)
-result3 <- my_ifelse(test_vector3, "==", 7)
-cat("Test 3 Result:", result3, "\n")
+result3 <- my_ifelse(test_vector3, ">", 7)
+print(result3)
 
+test_vector4 <- c(5, 9, 22, 1, 8, 3, 11)
+result4 <- my_ifelse(test_vector4, "<=", 8)
+print(result4)
+
+test_vector5 <- c(2, 3, 7, 12)
+result5 <- my_ifelse(test_vector5, "<", 7)
+print(result5)
+
+# Test with random vector 
+
+random_vector <- rnorm(10)
+result6 <- my_ifelse(random_vector, ">", 1)
+print(random_vector)
+print(result6)
 ```
 3. Function `my_columnmean(df, removeNA)` that returns mean value for each column of data frame or matrix `df`. Logical argument `removeNA` set whether remove NA values or not. By default `removeNA = True`. Use loop `for` of `while` for the function.
+```{r message=FALSE}
+my_columnmean <- function(df, removeNA = TRUE) {
+  # number of columns in dataframe
+  column_count <- ncol(df)
+  while (column_count > 0)
+    print(mean(df[, column_count]))
+}
+```
+
 ```{r}
+column1.0 <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+column1.1 <- c(1, 2, 3, NA, 5, 6, NA, 8, NA, NA)
+column1.2 <- c(NA, NA, NA, 1, 9, NA, 0, 5, 6, 7)
+df1 <- data.frame(column1.0, column1.1, column1.2)
+print.data.frame(df1)
+```
+
+```{r}
+column_count <- as.integer(ncol(df1))
+print(column_count)
+mean1 <- mean(df1[, column_count], na.rm = TRUE)
+print(mean1)
 
 ```

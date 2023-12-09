@@ -53,20 +53,18 @@ For the data frame find and print:
 - the last 10 rows;
 
 ```{r}
-cat("Last 10 rows")
 print(tail(df, 10))
 ```
 
 - 15th item of columns `cc`;
 
 ```{r}
-cat("15th item of column", df$cc[15])
+print(df$cc[15])
 ```
 
 - subset columns `a`and `b` and rows from 10th to 20th (including 20th);
 
 ```{r}
-cat("Subset of columns")
 print(df[10:20, c('a', 'b')])
 ```
 
@@ -74,6 +72,5 @@ print(df[10:20, c('a', 'b')])
 
 ```{r}
 new_vector <- df$b
-cat("New vector from column")
 print(new_vector)
 ```

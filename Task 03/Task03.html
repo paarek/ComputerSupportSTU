@@ -368,22 +368,22 @@ display: none;
 <li>10th item;</li>
 </ul>
 <pre class="r"><code>cat(&quot;10th item&quot;, v[10])</code></pre>
-<pre><code>## 10th item -0.08228198</code></pre>
+<pre><code>## 10th item -0.3345958</code></pre>
 <ul>
 <li>items from 10th to 20th (including 20th item);</li>
 </ul>
 <pre class="r"><code>cat(&quot;Items from 10th to 20th&quot;, v[10:20])</code></pre>
-<pre><code>## Items from 10th to 20th -0.08228198 -0.2578197 -2.250862 0.4782363 -0.3192681 -0.08138207 1.795715 0.7284081 -1.333171 1.485917 0.851976</code></pre>
+<pre><code>## Items from 10th to 20th -0.3345958 1.472128 0.298329 -2.112968 0.9346032 -2.304201 1.148742 -0.6596055 -1.170749 -0.4533034 0.08208607</code></pre>
 <ul>
 <li>10 items starting from 5th;</li>
 </ul>
 <pre class="r"><code>cat(&quot;10 items starting from 5th&quot;, v[5:14])</code></pre>
-<pre><code>## 10 items starting from 5th -0.4157321 1.10805 -0.34114 0.4261396 -0.5124233 -0.08228198 -0.2578197 -2.250862 0.4782363 -0.3192681</code></pre>
+<pre><code>## 10 items starting from 5th 0.6948452 -1.882322 -1.061912 -0.8823659 -0.7648593 -0.3345958 1.472128 0.298329 -2.112968 0.9346032</code></pre>
 <ul>
 <li>all items bigger than 0.</li>
 </ul>
 <pre class="r"><code>cat(&quot;All items bigger than 0&quot;, v[v &gt; 0])</code></pre>
-<pre><code>## All items bigger than 0 0.933953 0.4244079 1.10805 0.4261396 0.4782363 1.795715 0.7284081 1.485917 0.851976 1.067426 2.410597 1.452014 0.2617027 0.4394591 1.27081 0.5701881 0.02270907 0.7745822 1.195301 1.696746 0.3082658 1.542932 0.06899376 1.004166</code></pre>
+<pre><code>## All items bigger than 0 0.9711524 0.356939 0.6948452 1.472128 0.298329 0.9346032 1.148742 0.08208607 0.6408285 0.9632423 0.7465078 0.4098389 1.592356 0.7967195 1.188181 1.145692 1.198245 0.6421098 1.735169 0.006232411 1.416212 1.054711 2.009873</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Create the next data frame:</li>
 </ol>
@@ -394,51 +394,45 @@ display: none;
 <ul>
 <li>the last 10 rows;</li>
 </ul>
-<pre class="r"><code>cat(&quot;Last 10 rows&quot;)</code></pre>
-<pre><code>## Last 10 rows</code></pre>
 <pre class="r"><code>print(tail(df, 10))</code></pre>
-<pre><code>##             a  b cc
-## 41  0.5294999 41  m
-## 42 -0.7622922 42  c
-## 43 -0.0200546 43  s
-## 44  0.9764893 44  u
-## 45 -2.8961885 45  x
-## 46 -2.0119567 46  p
-## 47  1.3521848 47  p
-## 48 -0.4754745 48  m
-## 49  2.9632861 49  v
-## 50 -0.6688432 50  l</code></pre>
+<pre><code>##              a  b cc
+## 41  0.48752538 41  x
+## 42 -1.17601188 42  t
+## 43 -0.02668904 43  v
+## 44  0.07316686 44  r
+## 45  1.42756417 45  y
+## 46  0.33901011 46  i
+## 47 -0.12803419 47  v
+## 48 -1.25250256 48  j
+## 49 -0.35234979 49  m
+## 50  1.35956362 50  b</code></pre>
 <ul>
 <li>15th item of columns <code>cc</code>;</li>
 </ul>
-<pre class="r"><code>cat(&quot;15th item of column&quot;, df$cc[15])</code></pre>
-<pre><code>## 15th item of column x</code></pre>
+<pre class="r"><code>print(df$cc[15])</code></pre>
+<pre><code>## [1] &quot;o&quot;</code></pre>
 <ul>
 <li>subset columns <code>a</code>and <code>b</code> and rows from 10th
 to 20th (including 20th);</li>
 </ul>
-<pre class="r"><code>cat(&quot;Subset of columns&quot;)</code></pre>
-<pre><code>## Subset of columns</code></pre>
 <pre class="r"><code>print(df[10:20, c(&#39;a&#39;, &#39;b&#39;)])</code></pre>
-<pre><code>##              a  b
-## 10 -0.27887462 10
-## 11 -0.14314918 11
-## 12  0.63757459 12
-## 13  1.03278483 13
-## 14  0.63299041 14
-## 15 -0.36965060 15
-## 16 -0.07096376 16
-## 17 -0.85914305 17
-## 18  0.70981442 18
-## 19  0.23400455 19
-## 20  1.41384308 20</code></pre>
+<pre><code>##             a  b
+## 10 -0.1309795 10
+## 11  1.3366110 11
+## 12 -0.4445650 12
+## 13 -0.2217191 13
+## 14  0.4147445 14
+## 15 -0.9769279 15
+## 16  0.2067078 16
+## 17 -0.2149883 17
+## 18 -0.8325565 18
+## 19  0.4191415 19
+## 20 -1.2858737 20</code></pre>
 <ul>
 <li>a new vector from column <code>b</code>.’</li>
 </ul>
 <pre class="r"><code>new_vector &lt;- df$b
-cat(&quot;New vector from column&quot;)</code></pre>
-<pre><code>## New vector from column</code></pre>
-<pre class="r"><code>print(new_vector)</code></pre>
+print(new_vector)</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
 ## [26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50</code></pre>
 </div>
