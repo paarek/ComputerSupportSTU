@@ -431,10 +431,10 @@ print(result5)</code></pre>
 random_vector &lt;- rnorm(10)
 result6 &lt;- my_ifelse(random_vector, &quot;&gt;&quot;, 1)
 print(random_vector)</code></pre>
-<pre><code>##  [1]  0.83157836 -0.09607597  1.18599267 -0.44719842 -0.72620210  1.03779514
-##  [7]  0.66171513 -1.31410591 -0.72195990 -1.62104052</code></pre>
+<pre><code>##  [1]  0.55260680 -0.76627097 -0.83803964 -0.27081418  0.32060933 -0.56308083
+##  [7] -0.65371666  0.03137172  0.65290854  0.73413170</code></pre>
 <pre class="r"><code>print(result6)</code></pre>
-<pre><code>## [1] 1.185993 1.037795</code></pre>
+<pre><code>## numeric(0)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Function <code>my_columnmean(df, removeNA)</code> that returns mean
 value for each column of data frame or matrix <code>df</code>. Logical
@@ -443,33 +443,44 @@ default <code>removeNA = True</code>. Use loop <code>for</code> of
 <code>while</code> for the function.</li>
 </ol>
 <pre class="r"><code>my_columnmean &lt;- function(df, removeNA = TRUE) {
-  # number of columns in dataframe
   column_count &lt;- ncol(df)
-  while (column_count &gt; 0)
-    print(mean(df[, column_count]))
-}</code></pre>
-<pre class="r"><code>column1.0 &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-column1.1 &lt;- c(1, 2, 3, NA, 5, 6, NA, 8, NA, NA)
-column1.2 &lt;- c(NA, NA, NA, 1, 9, NA, 0, 5, 6, 7)
-df1 &lt;- data.frame(column1.0, column1.1, column1.2)
-print.data.frame(df1)</code></pre>
-<pre><code>##    column1.0 column1.1 column1.2
-## 1          1         1        NA
-## 2          2         2        NA
-## 3          3         3        NA
-## 4          4        NA         1
-## 5          5         5         9
-## 6          6         6        NA
-## 7          7        NA         0
-## 8          8         8         5
-## 9          9        NA         6
-## 10        10        NA         7</code></pre>
-<pre class="r"><code>column_count &lt;- as.integer(ncol(df1))
-print(column_count)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>mean1 &lt;- mean(df1[, column_count], na.rm = TRUE)
-print(mean1)</code></pre>
-<pre><code>## [1] 4.666667</code></pre>
+  mean_vector &lt;- numeric(column_count)  # Initialize a vector to store the mean values
+  
+  while (column_count &gt; 0) {
+    current_column &lt;- df[, column_count]
+    
+    if (removeNA) {
+      current_column &lt;- current_column[!is.na(current_column)]
+    }
+    
+    if (length(current_column) &gt; 0) {
+      mean_vector[column_count] &lt;- mean(current_column)
+    } else {
+      mean_vector[column_count] &lt;- NA
+    }
+    
+    column_count &lt;- column_count - 1
+  }
+  
+  return(mean_vector)
+}
+
+# Test the function with different arguments
+# Test case 1
+df1 &lt;- data.frame(a = c(1, 2, NA, 4, 5, 6), b = c(NA, 2, 3, 4, 5, 6))
+result1 &lt;- my_columnmean(df1)
+cat(&quot;Test Case 1:&quot;, result1, &quot;\n&quot;)</code></pre>
+<pre><code>## Test Case 1: 3.6 4</code></pre>
+<pre class="r"><code># Test case 2 (with removeNA = FALSE)
+df2 &lt;- data.frame(a = c(1, 2, NA, 4, 5, 6), b = c(NA, 2, 3, 4, 5, 6))
+result2 &lt;- my_columnmean(df2, removeNA = FALSE)
+cat(&quot;Test Case 2:&quot;, result2, &quot;\n&quot;)</code></pre>
+<pre><code>## Test Case 2: NA NA</code></pre>
+<pre class="r"><code># Test case 3 (with a matrix)
+mat &lt;- matrix(c(1, 2, 3, NA, 5, 6), ncol = 2)
+result3 &lt;- my_columnmean(mat)
+cat(&quot;Test Case 3:&quot;, result3, &quot;\n&quot;)</code></pre>
+<pre><code>## Test Case 3: 2 5.5</code></pre>
 </div>
 
 

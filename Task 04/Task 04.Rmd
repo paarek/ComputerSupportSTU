@@ -77,27 +77,43 @@ print(random_vector)
 print(result6)
 ```
 3. Function `my_columnmean(df, removeNA)` that returns mean value for each column of data frame or matrix `df`. Logical argument `removeNA` set whether remove NA values or not. By default `removeNA = True`. Use loop `for` of `while` for the function.
-```{r message=FALSE}
+```{r}
 my_columnmean <- function(df, removeNA = TRUE) {
-  # number of columns in dataframe
   column_count <- ncol(df)
-  while (column_count > 0)
-    print(mean(df[, column_count]))
+  mean_vector <- numeric(column_count)  # Initialize a vector to store the mean values
+  
+  while (column_count > 0) {
+    current_column <- df[, column_count]
+    
+    if (removeNA) {
+      current_column <- current_column[!is.na(current_column)]
+    }
+    
+    if (length(current_column) > 0) {
+      mean_vector[column_count] <- mean(current_column)
+    } else {
+      mean_vector[column_count] <- NA
+    }
+    
+    column_count <- column_count - 1
+  }
+  
+  return(mean_vector)
 }
-```
 
-```{r}
-column1.0 <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-column1.1 <- c(1, 2, 3, NA, 5, 6, NA, 8, NA, NA)
-column1.2 <- c(NA, NA, NA, 1, 9, NA, 0, 5, 6, 7)
-df1 <- data.frame(column1.0, column1.1, column1.2)
-print.data.frame(df1)
-```
+# Test the function with different arguments
+# Test case 1
+df1 <- data.frame(a = c(1, 2, NA, 4, 5, 6), b = c(NA, 2, 3, 4, 5, 6))
+result1 <- my_columnmean(df1)
+cat("Test Case 1:", result1, "\n")
 
-```{r}
-column_count <- as.integer(ncol(df1))
-print(column_count)
-mean1 <- mean(df1[, column_count], na.rm = TRUE)
-print(mean1)
+# Test case 2 (with removeNA = FALSE)
+df2 <- data.frame(a = c(1, 2, NA, 4, 5, 6), b = c(NA, 2, 3, 4, 5, 6))
+result2 <- my_columnmean(df2, removeNA = FALSE)
+cat("Test Case 2:", result2, "\n")
 
+# Test case 3 (with a matrix)
+mat <- matrix(c(1, 2, 3, NA, 5, 6), ncol = 2)
+result3 <- my_columnmean(mat)
+cat("Test Case 3:", result3, "\n")
 ```
