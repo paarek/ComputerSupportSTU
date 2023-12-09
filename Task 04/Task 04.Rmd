@@ -5,6 +5,9 @@ date: "2023-12-05"
 output: html_document
 ---
 
+# MY COMMENT
+ - I can't seem to figure out the 3rd function, namely the removeNA argument.
+
 ## Task 4. Functions
 
 Create the next functions and test them with a few different arguments:
